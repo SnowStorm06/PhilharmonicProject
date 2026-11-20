@@ -1,0 +1,17 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>Импресарио</h1>
+<a href="{% url 'impresario-create' %}">➕ Добавить импресарио</a>
+<ul>
+{% for i in impresarios %}
+    <li style="margin-bottom: 10px;">
+        <a href="{% url 'impresario-detail' i.pk %}"><strong>{{ i.imya }}</strong></a>
+        (возраст: {{ i.vozvrast }}, пол: {{ i.pol.pol }}) |
+        <a href="{% url 'impresario-update' i.pk %}">✏️</a> |
+        <a href="{% url 'impresario-delete' i.pk %}">🗑️</a>
+    </li>
+{% empty %}
+    <li>Импресарио пока нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

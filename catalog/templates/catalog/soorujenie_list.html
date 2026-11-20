@@ -1,0 +1,18 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>Сооружения</h1>
+<a href="{% url 'soorujenie-create' %}">➕ Добавить сооружение</a>
+<ul>
+{% for s in soorujenies %}
+    <li style="margin-bottom: 20px;">
+        <a href="{% url 'soorujenie-detail' s.pk %}"><strong>{{ s.nazvanie }}</strong></a><br>
+        {% if s.photo %}
+            <img src="{{ s.photo.url }}" alt="Фото" style="max-width: 150px;"><br>
+        {% endif %}
+        Вместимость: {{ s.vmestitelnost }} | Тип: {{ s.tip_soorujenia.tip }}<br>
+        <a href="{% url 'soorujenie-update' s.pk %}">✏️</a> |
+        <a href="{% url 'soorujenie-delete' s.pk %}">🗑️</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

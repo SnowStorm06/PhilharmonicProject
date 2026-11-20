@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Филармония{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main_app/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}" class="logo">Филармония</a>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Главная</a></li>
+                <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">О компании</a></li>
+                <li><a href="{% url 'contacts' %}" class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">Контакты</a></li>
+                <li><a href="{% url 'find_us' %}" class="{% if request.resolver_match.url_name == 'find_us' %}active{% endif %}">Как нас найти</a></li>
+                <li><a href="{% url 'concerts' %}" class="{% if request.resolver_match.url_name == 'concerts' %}active{% endif %}">Афиша концертов</a></li>
+                <li><a href="{% url 'orchestra' %}" class="{% if request.resolver_match.url_name == 'orchestra' %}active{% endif %}">Наш оркестр</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

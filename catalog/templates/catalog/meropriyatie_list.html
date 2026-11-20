@@ -1,0 +1,17 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>Мероприятия</h1>
+<a href="{% url 'meropriyatie-create' %}">➕ Добавить мероприятие</a>
+<ul>
+{% for m in meropriyaties %}
+    <li style="margin-bottom: 10px;">
+        <a href="{% url 'meropriyatie-detail' m.pk %}"><strong>{{ m.nazvanie }}</strong></a>
+        — {{ m.data }} | {{ m.organizator.nazvanie }} | {{ m.soorujenie.nazvanie }} |
+        <a href="{% url 'meropriyatie-update' m.pk %}">✏️</a> |
+        <a href="{% url 'meropriyatie-delete' m.pk %}">🗑️</a>
+    </li>
+{% empty %}
+    <li>Мероприятий пока нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

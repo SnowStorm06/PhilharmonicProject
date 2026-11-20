@@ -1,0 +1,8 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>{{ meropriyatie.nazvanie }}</h1>
+<p><strong>Дата:</strong> {{ meropriyatie.data }}</p>
+<p><strong>Организатор:</strong> {{ meropriyatie.organizator.nazvanie }}</p>
+<p><strong>Сооружение:</strong> {{ meropriyatie.soorujenie.nazvanie }}</p>
+<a href="{% url 'meropriyatie-list' %}">← Назад к списку</a>
+{% endblock %}

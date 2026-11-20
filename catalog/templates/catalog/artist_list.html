@@ -1,0 +1,18 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>Артисты</h1>
+<a href="{% url 'artist-create' %}">➕ Добавить артиста</a>
+<ul>
+{% for artist in artists %}
+    <li style="margin-bottom: 20px;">
+        <a href="{% url 'artist-detail' artist.pk %}"><strong>{{ artist.imya }}</strong></a><br>
+        {% if artist.photo %}
+            <img src="{{ artist.photo.url }}" alt="Фото" style="max-width: 150px;"><br>
+        {% endif %}
+        Возраст: {{ artist.vozrast }} | Стаж: {{ artist.staj }}<br>
+        <a href="{% url 'artist-update' artist.pk %}">✏️ Редактировать</a> |
+        <a href="{% url 'artist-delete' artist.pk %}">🗑️ Удалить</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

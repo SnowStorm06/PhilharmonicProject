@@ -1,0 +1,11 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>{{ soorujenie.nazvanie }}</h1>
+{% if soorujenie.photo %}
+    <img src="{{ soorujenie.photo.url }}" alt="Фото" style="max-width: 300px;"><br>
+{% endif %}
+<p>Вместимость: {{ soorujenie.vmestitelnost }}</p>
+<p>Атрибуты: {{ soorujenie.atribute }}</p>
+<p>Тип: {{ soorujenie.tip_soorujenia.tip }}</p>
+<a href="{% url 'soorujenie-list' %}">← Назад</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Филармония — Каталог{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'artist-list' %}">Артисты</a> |
+        <a href="{% url 'impresario-list' %}">Импресарио</a> |
+        <a href="{% url 'meropriyatie-list' %}">Мероприятия</a> |
+        <a href="{% url 'soorujenie-list' %}">Сооружения</a> |
+        <a href="{% url 'organizator-list' %}">Организаторы</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

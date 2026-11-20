@@ -1,0 +1,10 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>Удалить артиста?</h1>
+<p>Вы уверены, что хотите удалить "{{ object.imya }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Да, удалить</button>
+</form>
+<a href="{% url 'artist-list' %}">Отмена</a>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>{{ impresario.imya }}</h1>
+<p><strong>Возраст:</strong> {{ impresario.vozvrast }}</p>
+<p><strong>Пол:</strong> {{ impresario.pol.pol }}</p>
+<a href="{% url 'impresario-list' %}">← Назад к списку</a>
+{% endblock %}

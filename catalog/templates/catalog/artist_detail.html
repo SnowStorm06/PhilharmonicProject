@@ -1,0 +1,12 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>{{ artist.imya }}</h1>
+{% if artist.photo %}
+    <img src="{{ artist.photo.url }}" alt="Фото" style="max-width: 300px;"><br>
+{% endif %}
+<p>Возраст: {{ artist.vozrast }}</p>
+<p>Образование: {{ artist.obrazovanie }}</p>
+<p>Стаж: {{ artist.staj }}</p>
+<p>Пол: {{ artist.pol.pol }}</p>
+<a href="{% url 'artist-list' %}">← Назад</a>
+{% endblock %}

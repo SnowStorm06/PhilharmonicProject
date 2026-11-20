@@ -1,0 +1,17 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>Организаторы</h1>
+<a href="{% url 'organizator-create' %}">➕ Добавить организатора</a>
+<ul>
+{% for o in organizators %}
+    <li style="margin-bottom: 10px;">
+        <a href="{% url 'organizator-detail' o.pk %}"><strong>{{ o.nazvanie }}</strong></a>
+        — {{ o.forma_sobstvennosti }} / {{ o.vid_organizatora }} |
+        <a href="{% url 'organizator-update' o.pk %}">✏️</a> |
+        <a href="{% url 'organizator-delete' o.pk %}">🗑️</a>
+    </li>
+{% empty %}
+    <li>Организаторов пока нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

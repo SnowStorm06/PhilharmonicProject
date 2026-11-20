@@ -1,0 +1,7 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<h1>{{ organizator.nazvanie }}</h1>
+<p><strong>Форма собственности:</strong> {{ organizator.forma_sobstvennosti }}</p>
+<p><strong>Вид организатора:</strong> {{ organizator.vid_organizatora }}</p>
+<a href="{% url 'organizator-list' %}">← Назад к списку</a>
+{% endblock %}
